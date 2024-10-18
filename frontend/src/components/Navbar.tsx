@@ -1,10 +1,15 @@
+'use client'
+
 import Link from 'next/link'
-import { Menu,} from 'lucide-react'
+import { usePathname } from 'next/navigation'
+import { Menu } from 'lucide-react'
 
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 
 export default function Navbar() {
+  const pathname = usePathname()
+
   const navItems = [
     { href: '/blog', label: 'Blog' },
     { href: '/about', label: 'About' },
@@ -20,7 +25,13 @@ export default function Navbar() {
         </Link>
         <div className="hidden md:flex space-x-4 text-anturaBlack font-medium text-lg">
           {navItems.map((item) => (
-            <Link key={item.href} href={item.href} className="hover:underline">
+            <Link
+              key={item.href}
+              href={item.href}
+              className={`hover:underline hover:text-anturaGreen transition-colors ${
+                pathname === item.href ? 'text-anturaGreen underline' : ''
+              }`}
+            >
               {item.label}
             </Link>
           ))}
@@ -38,7 +49,9 @@ export default function Navbar() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="text-lg font-medium text-anturaBlack hover:underline"
+                  className={`text-lg font-medium hover:underline hover:text-anturaGreen transition-colors ${
+                    pathname === item.href ? 'text-anturaGreen underline' : 'text-anturaBlack'
+                  }`}
                 >
                   {item.label}
                 </Link>

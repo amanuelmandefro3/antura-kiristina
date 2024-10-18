@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import {InfiniteMovingCards} from '@/components/InfiniteMovingCards'
+import Image from 'next/image'
 
 
 
@@ -17,15 +18,15 @@ export default function Home() {
     <div className="flex flex-col min-h-screen pt-20">
       <main className="flex-grow">
         {/* Hero Section */}
-        <section className="bg-[url('https://res.cloudinary.com/dxjomgo1o/image/upload/v1729235420/pexels-pixabay-372326_1_vgswin.jpg')] md:bg-cover text-white py-42 h-[500px] md:h-[730px]">
-          <div className="container mx-auto text-center text-[#2D2D31] pt-20">
+        <section className="bg-[url('https://res.cloudinary.com/dxjomgo1o/image/upload/v1729247965/pexels-otherme-583475_eceqli.jpg')] md:bg-cover text-white pb-52 h-[500px] md:h-[730px] flex flex-col justify-center">
+          <div className="container mx-auto text-center ">
             <h1 className="text-4xl md:text-6xl font-bold mb-4">Discover God&apos;s Word Together</h1>
             <p className="text-xl mb-8">Join our vibrant community of teenage believers</p>
             <div className="space-x-4 text-lg">
               <Button asChild className='w-24 bg-anturaGreen'>
                 <Link href="/register">Join Us</Link>
               </Button>
-              <Button variant="outline" className='border-anturaGreen text-anturaBlack bg-transparent hover:bg-anturaGreen hover:text-white w-24 px-4' asChild>
+              <Button variant="outline" className='border-anturaGreen text-white bg-transparent hover:bg-anturaGreen  hover:text-white w-24 px-4' asChild>
                 <Link href="/about">Learn More</Link>
               </Button>
             </div>
@@ -65,7 +66,7 @@ export default function Home() {
               </Card>
               <Card className="p-6">
                 <h3 className="text-xl font-semibold mb-2">Worship Nights</h3>
-                <p className="text-muted-foreground mb-4">Experience powerful worship with other teens monthly.</p>
+                <p className="text-muted-foxreground mb-4">Experience powerful worship with other teens monthly.</p>
                 <Button asChild className='bg-anturaGreen'>
                   <Link href="/programs#worship-nights">Learn More</Link>
                 </Button>
@@ -82,33 +83,63 @@ export default function Home() {
 
         {/* Blog Highlight */}
         <section className="py-16 bg-muted">
-          <div className="container mx-auto">
-            <h2 className="text-3xl font-bold mb-8 text-center">Latest from Our Blog</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <Card className="p-6">
-                <h3 className="text-xl font-semibold mb-2">5 Ways to Study the Bible Effectively</h3>
-                <p className="text-muted-foreground mb-4">Discover practical tips to enhance your Bible study time...</p>
-                <Button variant="outline" asChild>
-                  <Link href="/blog/study-tips">Read More</Link>
-                </Button>
-              </Card>
-              <Card className="p-6">
-                <h3 className="text-xl font-semibold mb-2">Dealing with Peer Pressure as a Christian Teen</h3>
-                <p className="text-muted-foreground mb-4">Learn how to stand firm in your faith while navigating social challenges...</p>
-                <Button variant="outline" asChild>
-                  <Link href="/blog/peer-pressure">Read More</Link>
-                </Button>
-              </Card>
-              <Card className="p-6">
-                <h3 className="text-xl font-semibold mb-2">The Power of Youth-Led Worship</h3>
-                <p className="text-muted-foreground mb-4">Explore how young people are transforming worship experiences...</p>
-                <Button variant="outline" asChild>
-                  <Link href="/blog/youth-worship">Read More</Link>
-                </Button>
-              </Card>
+      <div className="container mx-auto px-4">
+        <h2 className="text-3xl font-bold mb-8 text-center">Latest from Our Blog</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <Card className="overflow-hidden flex flex-col">
+            <div className="relative w-full pt-[56.25%]">
+              <Image
+                src="https://res.cloudinary.com/dxjomgo1o/image/upload/v1728974728/pexels-pixabay-372326_yvhrfe.jpg"
+                alt="Bible study"
+                fill
+                className="object-cover"
+              />
             </div>
-          </div>
-        </section>
+            <div className="p-6 flex flex-col flex-grow">
+              <h3 className="text-xl font-semibold mb-2">5 Ways to Study the Bible Effectively</h3>
+              <p className="text-muted-foreground mb-4 flex-grow">Discover practical tips to enhance your Bible study time and deepen your understanding of Scripture. Learn how to apply these methods in your daily life.</p>
+              <Button variant="outline" asChild className="mt-auto">
+                <Link href="/blog/study-tips">Read More</Link>
+              </Button>
+            </div>
+          </Card>
+          <Card className="overflow-hidden flex flex-col">
+            <div className="relative w-full pt-[56.25%]">
+              <Image
+                src="https://res.cloudinary.com/dxjomgo1o/image/upload/v1728974728/pexels-pixabay-372326_yvhrfe.jpg"
+                alt="Teens discussing"
+                fill
+                className="object-cover"
+              />
+            </div>
+            <div className="p-6 flex flex-col flex-grow">
+              <h3 className="text-xl font-semibold mb-2">Dealing with Peer Pressure as a Christian Teen</h3>
+              <p className="text-muted-foreground mb-4 flex-grow">Learn how to stand firm in your faith while navigating social challenges. Discover strategies to maintain your values in various situations.</p>
+              <Button variant="outline" asChild className="mt-auto">
+                <Link href="/blog/peer-pressure">Read More</Link>
+              </Button>
+            </div>
+          </Card>
+          <Card className="overflow-hidden flex flex-col">
+            <div className="relative w-full pt-[56.25%]">
+              <Image
+                src="https://res.cloudinary.com/dxjomgo1o/image/upload/v1728974728/pexels-pixabay-372326_yvhrfe.jpg"
+                alt="Youth-led worship"
+                fill
+                className="object-cover"
+              />
+            </div>
+            <div className="p-6 flex flex-col flex-grow">
+              <h3 className="text-xl font-semibold mb-2">The Power of Youth-Led Worship</h3>
+              <p className="text-muted-foreground mb-4 flex-grow">Explore how young people are transforming worship experiences in churches today. Learn about the impact of youth involvement in ministry.</p>
+              <Button variant="outline" asChild className="mt-auto">
+                <Link href="/blog/youth-worship">Read More</Link>
+              </Button>
+            </div>
+          </Card>
+        </div>
+      </div>
+    </section>
 
         {/* Quick Links */}
         <section className="py-16 bg-primary text-primary-foreground">
