@@ -1,10 +1,15 @@
+'use client'
+
 import Link from 'next/link'
 import Image from 'next/image'
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
+import { useLanguage } from '@/components/LanguageContext'
 
 export default function BlogPage() {
+  const { t } = useLanguage()
+
   const blogPosts = [
     {
       id: 1,
@@ -54,12 +59,12 @@ export default function BlogPage() {
     <div className="flex flex-col min-h-screen">
       <main className="flex-grow">
         {/* Blog Header */}
-        <section className="bg-primary text-primary-foreground pt-20 py-16">
+        <section className="bg-primary text-primary-foreground pt-28 pb-16">
           <div className="container mx-auto text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-4">Antura Kiristina Blog</h1>
-            <p className="text-xl mb-8">Inspirational content for Christian teens</p>
+            <h1 className="text-4xl md:text-6xl font-bold mb-4">{t('blog.title')}</h1>
+            <p className="text-xl mb-8">{t('blog.subtitle')}</p>
             <div className="max-w-md mx-auto">
-              <Input type="search" placeholder="Search blog posts..." className="bg-primary-foreground text-primary" />
+              <Input type="search" placeholder={t('blog.searchPlaceholder')} className="bg-primary-foreground text-primary" />
             </div>
           </div>
         </section>
@@ -82,7 +87,7 @@ export default function BlogPage() {
                     <h2 className="text-xl font-semibold mb-2">{post.title}</h2>
                     <p className="text-muted-foreground mb-4 flex-grow">{post.excerpt}</p>
                     <Button variant="outline" asChild className="mt-auto">
-                      <Link href={`/blog/${post.slug}`}>Read More</Link>
+                      <Link href={`/blog/${post.slug}`}>{t('blog.readMore')}</Link>
                     </Button>
                   </div>
                 </Card>
@@ -94,11 +99,11 @@ export default function BlogPage() {
         {/* Newsletter Signup */}
         <section className="py-16 bg-muted">
           <div className="container mx-auto text-center px-4">
-            <h2 className="text-3xl font-bold mb-4">Stay Updated</h2>
-            <p className="mb-8 text-muted-foreground">Sign up for our newsletter to receive the latest blog posts and updates.</p>
+            <h2 className="text-3xl font-bold mb-4">{t('blog.newsletter.title')}</h2>
+            <p className="mb-8 text-muted-foreground">{t('blog.newsletter.description')}</p>
             <form className="max-w-md mx-auto flex gap-4">
-              <Input type="email" placeholder="Your email address" className="flex-grow" />
-              <Button type="submit" className="bg-anturaGreen">Subscribe</Button>
+              <Input type="email" placeholder={t('blog.newsletter.emailPlaceholder')} className="flex-grow" />
+              <Button type="submit" className="bg-anturaGreen">{t('blog.newsletter.subscribe')}</Button>
             </form>
           </div>
         </section>
@@ -107,7 +112,7 @@ export default function BlogPage() {
       {/* Footer */}
       <footer className="bg-muted py-8">
         <div className="container mx-auto text-center">
-          <p>&copy; 2024 Antura Kirstina. All rights reserved.</p>
+          <p>{t('footer.copyright')}</p>
         </div>
       </footer>
     </div>

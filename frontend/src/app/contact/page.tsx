@@ -1,75 +1,75 @@
-"use client";
+'use client'
 
-import { useState } from "react";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { MapPin, Phone, Mail, Clock, Plus, Minus } from "lucide-react";
+import { useState } from "react"
+import Link from "next/link"
+import { Button } from "@/components/ui/button"
+import { Card } from "@/components/ui/card"
+import { Input } from "@/components/ui/input"
+import { Textarea } from "@/components/ui/textarea"
+import { MapPin, Phone, Mail, Clock, Plus, Minus } from "lucide-react"
+import { useLanguage } from '@/components/LanguageContext'
 
 export default function ContactPage() {
+  const { t } = useLanguage()
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
-  });
+  })
 
-  const [openQuestion, setOpenQuestion] = useState<number | null>(null);
+  const [openQuestion, setOpenQuestion] = useState<number | null>(null)
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    const { name, value } = e.target;
+    const { name, value } = e.target
     setFormData((prevState) => ({
       ...prevState,
       [name]: value,
-    }));
-  };
+    }))
+  }
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+    e.preventDefault()
     // Here you would typically send the form data to your server
-    console.log("Form submitted:", formData);
+    console.log("Form submitted:", formData)
     // Reset form after submission
-    setFormData({ name: "", email: "", message: "" });
-    alert("Thank you for your message. We will get back to you soon!");
-  };
+    setFormData({ name: "", email: "", message: "" })
+    alert(t('contact.form.submitSuccess'))
+  }
 
   const toggleQuestion = (index: number) => {
-    setOpenQuestion(openQuestion === index ? null : index);
-  };
+    setOpenQuestion(openQuestion === index ? null : index)
+  }
 
   const faqData = [
     {
-      question: "What age group does Antura Kiristina serve?",
-      answer: "We primarily serve teenagers between the ages of 13 and 19.",
+      question: t('contact.faq.question1'),
+      answer: t('contact.faq.answer1'),
     },
     {
-      question: "How can I volunteer with Antura Kiristina?",
-      answer:
-        "Visit our Volunteer page to learn about opportunities and fill out an application.",
+      question: t('contact.faq.question2'),
+      answer: t('contact.faq.answer2'),
     },
     {
-      question: "Are your events open to non-members?",
-      answer:
-        "Most of our events are open to all teens. Some special events may require registration.",
+      question: t('contact.faq.question3'),
+      answer: t('contact.faq.answer3'),
     },
     {
-      question: "How can I support Antura Kiristina financially?",
-      answer:
-        "You can make a donation through our website or contact us for other giving options.",
+      question: t('contact.faq.question4'),
+      answer: t('contact.faq.answer4'),
     },
-  ];
+  ]
 
   return (
     <div className="flex flex-col min-h-screen">
       <main className="flex-grow">
         {/* Contact Header */}
-        <section className="bg-primary text-primary-foreground pt-20 py-16">
+        <section className="bg-primary text-primary-foreground pt-24 pb-8">
           <div className="container mx-auto text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-4">Contact Us</h1>
-            <p className="text-xl mb-8">We&apos;d love to hear from you!</p>
+            <h1 className="text-4xl md:text-6xl font-bold mb-4">{t('contact.title')}</h1>
+            <p className="text-xl mb-8">{t('contact.subtitle')}</p>
           </div>
         </section>
 
@@ -79,44 +79,35 @@ export default function ContactPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {/* Contact Information */}
               <Card className="p-6">
-                <h2 className="text-2xl font-semibold mb-4">Get in Touch</h2>
+                <h2 className="text-2xl font-semibold mb-4">{t('contact.getInTouch')}</h2>
                 <div className="space-y-4">
                   <div className="flex items-center">
                     <MapPin className="mr-2 h-5 w-5 text-anturaGreen" />
-                    <p>Addis Ababa, Ethiopia</p>
+                    <p>{t('contact.address')}</p>
                   </div>
                   <div className="flex items-center">
                     <Phone className="mr-2 h-5 w-5 text-anturaGreen" />
-                    <p>(+251) 123-4567</p>
+                    <p>{t('contact.phone')}</p>
                   </div>
                   <div className="flex items-center">
                     <Mail className="mr-2 h-5 w-5 text-anturaGreen" />
-                    <p>info@anturakiristina.org</p>
+                    <p>{t('contact.email')}</p>
                   </div>
                   <div className="flex items-center">
                     <Clock className="mr-2 h-5 w-5 text-anturaGreen" />
-                    <p>Monday - Friday: 9am - 5pm</p>
+                    <p>{t('contact.hours')}</p>
                   </div>
                 </div>
                 <div className="mt-6">
-                  <h3 className="text-xl font-semibold mb-2">Follow Us</h3>
+                  <h3 className="text-xl font-semibold mb-2">{t('contact.followUs')}</h3>
                   <div className="flex space-x-4">
-                    <Link
-                      href="#"
-                      className="text-anturaGreen hover:text-primary"
-                    >
+                    <Link href="#" className="text-anturaGreen hover:text-primary">
                       Facebook
                     </Link>
-                    <Link
-                      href="#"
-                      className="text-anturaGreen hover:text-primary"
-                    >
+                    <Link href="#" className="text-anturaGreen hover:text-primary">
                       Instagram
                     </Link>
-                    <Link
-                      href="#"
-                      className="text-anturaGreen hover:text-primary"
-                    >
+                    <Link href="#" className="text-anturaGreen hover:text-primary">
                       Twitter
                     </Link>
                   </div>
@@ -125,16 +116,11 @@ export default function ContactPage() {
 
               {/* Contact Form */}
               <Card className="p-6">
-                <h2 className="text-2xl font-semibold mb-4">
-                  Send Us a Message
-                </h2>
+                <h2 className="text-2xl font-semibold mb-4">{t('contact.form.title')}</h2>
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div>
-                    <label
-                      htmlFor="name"
-                      className="block text-sm font-medium text-muted-foreground mb-1"
-                    >
-                      Name
+                    <label htmlFor="name" className="block text-sm font-medium text-muted-foreground mb-1">
+                      {t('contact.form.name')}
                     </label>
                     <Input
                       type="text"
@@ -147,11 +133,8 @@ export default function ContactPage() {
                     />
                   </div>
                   <div>
-                    <label
-                      htmlFor="email"
-                      className="block text-sm font-medium text-muted-foreground mb-1"
-                    >
-                      Email
+                    <label htmlFor="email" className="block text-sm font-medium text-muted-foreground mb-1">
+                      {t('contact.form.email')}
                     </label>
                     <Input
                       type="email"
@@ -164,11 +147,8 @@ export default function ContactPage() {
                     />
                   </div>
                   <div>
-                    <label
-                      htmlFor="message"
-                      className="block text-sm font-medium text-muted-foreground mb-1"
-                    >
-                      Message
+                    <label htmlFor="message" className="block text-sm font-medium text-muted-foreground mb-1">
+                      {t('contact.form.message')}
                     </label>
                     <Textarea
                       id="message"
@@ -181,7 +161,7 @@ export default function ContactPage() {
                     />
                   </div>
                   <Button type="submit" className="w-full bg-anturaGreen">
-                    Send Message
+                    {t('contact.form.submit')}
                   </Button>
                 </form>
               </Card>
@@ -192,9 +172,7 @@ export default function ContactPage() {
         {/* Map Section */}
         <section className="py-16 bg-muted">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold mb-8 text-center">
-              Our Location
-            </h2>
+            <h2 className="text-3xl font-bold mb-8 text-center">{t('contact.location')}</h2>
             <div className="relative w-full h-[400px]">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.660489988772!2d38.7071076151755!3d9.030624393489564!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b8590a9b070e3%3A0x872a648c36e0ad4e!2sAntura%20Kiristina%2C%20Addis%20Ababa%2C%20Ethiopia!5e0!3m2!1sen!2sus!4v1689282987034!5m2!1sen!2sus"
@@ -211,9 +189,7 @@ export default function ContactPage() {
         {/* FAQ Section */}
         <section className="py-16 bg-background">
           <div className="container mx-auto px-4 max-w-3xl">
-            <h2 className="text-3xl font-bold mb-8 text-center">
-              Frequently Asked Questions
-            </h2>
+            <h2 className="text-3xl font-bold mb-8 text-center">{t('contact.faq.title')}</h2>
             <div className="space-y-4">
               {faqData.map((faq, index) => (
                 <div key={index} className="border-b border-gray-200 pb-4">
@@ -241,9 +217,9 @@ export default function ContactPage() {
       {/* Footer */}
       <footer className="bg-muted py-8">
         <div className="container mx-auto text-center">
-          <p>&copy; 2024 Antura Kiristina. All rights reserved.</p>
+          <p>{t('footer.copyright')}</p>
         </div>
       </footer>
     </div>
-  );
+  )
 }

@@ -1,0 +1,272 @@
+{
+    "nav": {
+      "blog": "Blog",
+      "about": "About",
+      "contact": "Contact",
+      "give": "Give"
+    },
+    "hero": {
+    "title": "Discover God's Word Together",
+    "subtitle": "Join our vibrant community of teenage believers",
+    "registerStudent": "Register as Student",
+    "registerVolunteer": "Register as Volunteer"
+    },
+    "intro": {
+      "title": "Welcome to Antura Kiristina",
+      "description": "We're dedicated to helping teenagers explore and understand the Bible in a fun, engaging, and relevant way. Our programs are designed to foster spiritual growth, build lasting friendships, and equip young people to live out their faith."
+    },
+    "programs": {
+      "title": "Our Programs",
+      "bibleStudy": {
+        "title": "Weekly Bible Study",
+        "description": "Dive deep into God's Word every Wednesday evening."
+      },
+      "summerCamp": {
+        "title": "Summer Camp",
+        "description": "Join us for an unforgettable week of faith and fun!"
+      },
+      "worshipNights": {
+        "title": "Worship Nights",
+        "description": "Experience powerful worship with other teens monthly."
+      }
+    },
+    "latestBlog": {
+      "title": "Latest from Our Blog",
+      "posts": [
+        {
+          "title": "5 Ways to Study the Bible Effectively",
+          "description": "Discover practical tips to enhance your Bible study time and deepen your understanding of Scripture. Learn how to apply these methods in your daily life."
+        },
+        {
+          "title": "Dealing with Peer Pressure as a Christian Teen",
+          "description": "Learn how to stand firm in your faith while navigating social challenges. Discover strategies to maintain your values in various situations."
+        },
+        {
+          "title": "The Power of Youth-Led Worship",
+          "description": "Explore how young people are transforming worship experiences in churches today. Learn about the impact of youth involvement in ministry."
+        }
+      ]
+    },
+    "getInvolved": {
+      "title": "Get Involved",
+      "volunteer": "Become a Volunteer",
+      "register": "Register as a Student",
+      "support": "Support Our Ministry",
+      "learnMore":"Learn More"
+    },
+    "footer": {
+      "copyright": "© 2024 Antura Kirstina. All rights reserved."
+    },
+
+    "about": {
+      "title": "About Antura Kiristina",
+      "subtitle": "Empowering Christian Teens to Live Out Their Faith",
+      "mission": {
+        "title": "Our Mission",
+        "description": "Producing a young people who are built by the word of God, filled with the Holy Spirit, and who are influencers of righteousness"
+      },
+      "vision": {
+        "title": "Our Vision",
+        "description": "Seeing a young people who are built by the word of God, filled with the Holy Spirit, and who are influencers of righteousness"
+      },
+      "history": {
+        "title": "Our History",
+        "paragraph1": "\"Antura Christianity\" was launched in 2009 as a TV show based on 2 Peter 3:15. This service was a program that was presented on Elshadai television for four consecutive years, and it was started mainly to answer questions about Christianity.",
+        "paragraph2": "During this ministry, when it saw the problems in various churches, it realized that the problems were vast and complex. Based on this situation, through prayer and consultation with a few of it friends, it came to the conclusion that if the church needs to bring lasting change to itself and the community, it should focus on young adults (15-17 years old).",
+        "paragraph3": "It believed that in order for these young people to be influential, they need holistic support from the family, the church, and the ministries. Therefore, the service started in 2011 by accepting 11 students for a one-year \"Basic Apologetics\" and teaching them and holding various seminars and discussions. It currently has four full-time employees and the learning centers have grown to two. The enrollment capacity has increased to fifty students."
+      },
+      "values": {
+        "title": "Our Values",
+        "biblicalTruth": {
+          "title": "Biblical Truth",
+          "description": "We are committed to teaching and living out the timeless truths of God's Word."
+        },
+        "authenticCommunity": {
+          "title": "Authentic Community",
+          "description": "We foster genuine relationships where teens can be themselves and grow together."
+        },
+        "servantLeadership": {
+          "title": "Servant Leadership",
+          "description": "We empower young people to lead by example and serve others with humility."
+        },
+        "joyfulWorship": {
+          "title": "Joyful Worship",
+          "description": "We celebrate God's goodness through vibrant, Christ-centered worship."
+        },
+        "inclusiveFellowship": {
+          "title": "Inclusive Fellowship",
+          "description": "We welcome all teens, regardless of their background or faith journey."
+        },
+        "lifelongDiscipleship": {
+          "title": "Lifelong Discipleship",
+          "description": "We encourage continuous growth and learning in faith beyond the teenage years."
+        }
+      },
+      "team": {
+        "title": "Our Team",
+        "director": "Director",
+        "media": "Media and Communication",
+        "finance": "Financial Administration",
+        "partnership": "Partnership",
+        "coordination": "Center Coordination",
+        "registry": "Registry"
+      },
+      "cta": {
+        "title": "Join Our Community",
+        "description": "Whether you're a teen looking to grow in your faith, a parent seeking a supportive community for your child, or an adult interested in volunteering, we'd love to welcome you to the Antura Kiristina family.",
+        "explorePrograms": "Explore Our Programs",
+        "contactUs": "Contact Us"
+      }
+    },
+
+    "contact": {
+      "title": "Contact Us",
+      "subtitle": "We'd love to hear from you!",
+      "getInTouch": "Get in Touch",
+      "address": "Addis Ababa, Ethiopia",
+      "phone": "(+251) 123-4567",
+      "email": "info@anturakiristina.org",
+      "hours": "Monday - Friday: 9am - 5pm",
+      "followUs": "Follow Us",
+      "form": {
+        "title": "Send Us a Message",
+        "name": "Name",
+        "email": "Email",
+        "message": "Message",
+        "submit": "Send Message",
+        "submitSuccess": "Thank you for your message. We will get back to you soon!"
+      },
+      "location": "Our Location",
+      "faq": {
+        "title": "Frequently Asked Questions",
+        "question1": "What age group does Antura Kiristina serve?",
+        "answer1": "We primarily serve teenagers between the ages of 13 and 19.",
+        "question2": "How can I volunteer with Antura Kiristina?",
+        "answer2": "Visit our Volunteer page to learn about opportunities and fill out an application.",
+        "question3": "Are your events open to non-members?",
+        "answer3": "Most of our events are open to all teens. Some special events may require registration.",
+        "question4": "How can I support Antura Kiristina financially?",
+        "answer4": "You can make a donation through our website or contact us for other giving options."
+      }
+    },
+
+    "blog": {
+      "title": "Antura Kiristina Blog",
+      "subtitle": "Inspirational content for Christian teens",
+      "searchPlaceholder": "Search blog posts...",
+      "readMore": "Read More",
+      "newsletter": {
+        "title": "Stay Updated",
+        "description": "Sign up for our newsletter to receive the latest blog posts and updates.",
+        "emailPlaceholder": "Your email address",
+        "subscribe": "Subscribe"
+      }
+    },
+    "studentRegistration": {
+      "title": "Student Registration",
+      "description": "Please fill out the form below to register as a student."
+    },
+    "form": {
+      "fullName": "Full Name",
+      "age": "Age",
+      "email": "Email",
+      "phoneNumber": "Phone Number",
+      "churchName": "Church Name",
+      "address": "Address",
+      "familyMemberName": "Family Member Name",
+      "familyPhoneNumber": "Family Phone Number",
+      "submit": "Submit",
+      "cancel": "Cancel",
+      "required": "This field is required",
+      "ageError": "Age must be between 13 and 19",
+      "previous": "Previous",
+      "next": "Next",
+      "q1": "Do you believe in the divine authority of Selassie's teachings? If so, how do you understand his teachings?",
+      "q2": "How do you understand the teaching that 'salvation is by faith alone'? What does it mean?",
+      "q3": "How do you understand the role of works in the doctrine of salvation?",
+      "q4": "What do you think the Bible teaches about human nature? Is a person made up of body, soul, and spirit together, or is a person a spirit within a body?",
+      "q5": "Do you think God needs to permit or influence human will to fulfill any of His purposes on earth? Provide reasons for your answer!",
+      "q6": "What do you think is the relationship between the true Gospel and material wealth on earth?",
+      "q7": "Do you think the Gospel promotes material prosperity?",
+      "q8": "In the doctrine of salvation, do you believe that when people are born again in God by believing in Christ, they attain a status equal to God? If not, what status do they achieve?",
+      "q9": "What difference do you think there is between Christ's sonship to the Father and the believers' sonship to God? Or is it the same kind of sonship?",
+      "q1Short": "Selassie's Teachings",
+      "q2Short": "Salvation by Faith",
+      "q3Short": "Works in Salvation",
+      "q4Short": "Human Nature",
+      "q5Short": "God's Will",
+      "q6Short": "Gospel and Wealth",
+      "q7Short": "Gospel and Prosperity",
+      "q8Short": "Born Again Status",
+      "q9Short": "Sonship to God"
+    },
+
+    "volunteerRegistration": {
+      "title": "Volunteer Registration",
+      "description": "Please fill out the form below to register as a volunteer. Fields marked with an asterisk (*) are required."
+    },
+    "volunteerForm": {
+      "fullName": "Full Name",
+      "age": "Age",
+      "ageError": "Age must be between 20 and 30",
+      "address": "Address",
+      "phoneNumber": "Phone Number",
+      "email": "Email",
+      "residentialAddress": "Residential Address",
+      "educationLevel": "Education Level",
+      "employmentStatus": "Employment Status",
+      "church": "Church",
+      "socialMedia": "Social Media",
+      "serviceAreasQuestion": "Service Areas",
+      "serviceAreas": {
+        "teaching": "Teaching",
+        "counseling": "Counseling",
+        "coordinating": "Coordinating",
+        "assignedPlace": "Assigned Place",
+        "other": "Other"
+      },
+      "availabilityFrequencyQuestion": "How often would you like to volunteer?",
+      "availabilityFrequency": {
+        "onceAWeek": "Once a week",
+        "twiceAWeek": "Twice a week",
+        "asNeeded": "As needed"
+      },
+      "submit": "Submit",
+      "required": "This field is required"
+    },
+    "testimonials": {
+      "title": "What People Are Saying",
+      "type": {
+        "student": "Student",
+        "family": "Parent",
+        "volunteer": "Volunteer"
+      },
+      "student1": {
+        "name": "Bethel Tadesse",
+        "content": "Antura Kiristina has been a life-changing experience for me. The biblical teachings and supportive community have helped me grow in my faith and become a better person."
+      },
+      "family1": {
+        "name": "Alemayehu Family",
+        "content": "We've seen such positive changes in our daughter since she joined Antura Kiristina. Her understanding of the Bible and her confidence in her faith have grown tremendously."
+      },
+      "volunteer1": {
+        "name": "Yohannes Bekele",
+        "content": "Volunteering with Antura Kiristina has been incredibly rewarding. Seeing the impact we're making in young lives and helping shape the future of our community is truly inspiring."
+      },
+      "student2": {
+        "name": "Kidus Haile",
+        "content": "The friendships I've made at Antura Kiristina are unlike any others. We support each other in our faith journeys and have so much fun learning together."
+      },
+      "family2": {
+        "name": "Tessema Family",
+        "content": "Antura Kiristina provides a safe and nurturing environment for our son to explore his faith. We're grateful for the dedicated staff and their commitment to our children's spiritual growth."
+      },
+      "volunteer2": {
+        "name": "Martha Gebre",
+        "content": "As a volunteer, I've grown in my own faith while helping guide these amazing young people. The energy and passion of the students is contagious and inspiring."
+      }
+    }
+  }
+
+
+

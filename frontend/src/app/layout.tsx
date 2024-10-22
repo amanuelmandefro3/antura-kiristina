@@ -1,18 +1,11 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import { LanguageProvider } from "@/components/LanguageContext";
+import { LanguageInitializer } from "@/components/LanguageInitializer";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Antura Christina",
@@ -26,13 +19,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <div className="flex flex-col">
-          <Navbar />
-          {children}
-        </div>
+      <body className={inter.className}>
+        <LanguageProvider>
+          <LanguageInitializer />
+          <div className="flex flex-col">
+            <Navbar />
+            {children}
+          </div>
+        </LanguageProvider>
       </body>
     </html>
   );

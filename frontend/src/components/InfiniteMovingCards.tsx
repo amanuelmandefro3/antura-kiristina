@@ -57,8 +57,9 @@ export const InfiniteMovingCards: React.FC<InfiniteMovingCardsProps> = ({
   return (
     <div
       ref={containerRef}
-      className="scroller relative z-20 max-w-7xl overflow-hidden mx-auto [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]"
+      className="scroller relative z-20 mx-4 md:mx-20 overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_10%,white_10%,transparent)]"
     >
+      {/* [mask-image:linear-gradient(to_right,transparent,white_50%,white_80%,transparent)] */}
       <ul
         ref={scrollerRef}
         className={`flex min-w-full shrink-0 gap-8 py-4 w-max flex-nowrap ${start ? "animate-scroll" : ""}`}
@@ -70,7 +71,7 @@ export const InfiniteMovingCards: React.FC<InfiniteMovingCardsProps> = ({
         {[...items, ...items].map((item, idx) => (
           <li
             key={idx}
-            className="w-[250px] max-w-full relative rounded-2xl border border-b-0 flex-shrink-0 border-gray-400 px-8 py-6 bg-[#F1F5F9] flex flex-col items-center gap-2"
+            className="w-[400px] max-w-full relative rounded-2xl border border-b-0 flex-shrink-0 border-gray-400 px-8 py-6 bg-[#F1F5F9] flex flex-col items-center gap-2"
           >
             <blockquote>
               <div
