@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 
 const studentSchema = new mongoose.Schema({
-    name: {
+    fullName: {
         type: String,
         required: true,
         minlength: 3,
@@ -13,7 +13,7 @@ const studentSchema = new mongoose.Schema({
         min: 12,
         max: 18
     },
-    phoneNum: {
+    phoneNumber: {
         type: String,
         required: false,
         minlength: 10,
@@ -37,22 +37,63 @@ const studentSchema = new mongoose.Schema({
         minlength: 5,
         maxlength: 200
     },
-    familyMembersName: {
+    familyMemberName: {
         type: String,
         required: true,
         minlength: 3,
         maxlength: 50
     },
-    familyMembersPhoneNum: {
+    familyPhoneNumber: {
         type: String,
         required: true,
         minlength: 10,
         maxlength: 15
     },
-    registeredAt: {
-        type: Date,
-        default: Date.now
+    q1: {
+        type: String,
+        required: true,
+        maxlength: 1000
+    },
+    q2: {
+        type: String,
+        required: true,
+        maxlength: 1000
+    },
+    q3: {
+        type: String,
+        required: true,
+        maxlength: 1000
+    },
+    q4: {
+        type: String,
+        required: true,
+        maxlength: 1000
+    },
+    q5: {
+        type: String,
+        required: true,
+        maxlength: 1000
+    },
+    q6: {
+        type: String,
+        required: true,
+        maxlength: 1000
+    },
+    q7: {
+        type: String,
+        required: true,
+        maxlength: 1000
+    },
+    q8: {
+        type: String,
+        required: true,
+        maxlength: 1000
+    },
+    q9: {
+        type: String,
+        required: true,
+        maxlength: 1000
     }
-});
+}, {timestamps: true});
 
 export const Student = mongoose.model('Student', studentSchema);

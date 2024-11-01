@@ -7,7 +7,7 @@ import {
   forgotAdminPassword,
   resetAdminPassword,
   refreshToken,
-} from '../controllers/adminController.js';
+} from '../controllers/admin.controller.js';
 
 const router = express.Router();
 

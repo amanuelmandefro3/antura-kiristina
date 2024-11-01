@@ -58,26 +58,71 @@ router.post('/create', upload.single('imageUrl'), createBlog);
 
 /**
  * @swagger
-* /blogs:
-*   get:
-*     summary:  Get all blogs
-*     tags: [Blogs]
-*     responses:
-*       200:
-*         description: Blogs retrieved successfully
-*       400: 
-*         description: No blogs found
-*       500:    
-*         description: Internal server error
-*     
-*/
+ * /blogs:
+ *   get:
+ *     summary: Retrieve paginated list of blogs
+ *     tags: [Blogs]
+ *     parameters:
+ *       - in: query
+ *         name: page
+ *         schema:
+ *           type: integer
+ *           default: 1
+ *         description: The page number to retrieve (default is 1).
+ *       - in: query
+ *         name: size
+ *         schema:
+ *           type: integer
+ *           default: 10
+ *         description: Number of blogs per page (default is 10).
+ *     responses:
+ *       200:
+ *         description: Blogs retrieved successfully with pagination.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   description: Indicates successful response.
+ *                 data:
+ *                   type: array
+ *                   items:
+ *                     type: object
+ *                     properties:
+ *                       title:
+ *                         type: string
+ *                       content:
+ *                         type: string
+ *                       imageUrl:
+ *                         type: string
+ *                       tags:
+ *                         type: array
+ *                         items:
+ *                           type: string
+ *                 currentPage:
+ *                   type: integer
+ *                   description: The current page number.
+ *                 totalPages:
+ *                   type: integer
+ *                   description: Total number of pages.
+ *                 totalBlogs:
+ *                   type: integer
+ *                   description: Total number of blogs.
+ *       400:
+ *         description: Bad request, invalid parameters.
+ *       500:
+ *         description: Internal server error
+ */
 router.get('/', getAllBlogs);
+
 
 /**
  * @swagger
  * /blogs/search:
  *   get:
- *     summary: Search for blogs by title or content
+ *     summary: Search for blogs by title or content with pagination
  *     tags: [Blogs]
  *     parameters:
  *       - in: query
@@ -85,31 +130,99 @@ router.get('/', getAllBlogs);
  *         schema:
  *           type: string
  *         required: true
- *         description: The search query
+ *         description: The search query to filter blogs by title or content.
+ *       - in: query
+ *         name: page
+ *         schema:
+ *           type: integer
+ *           default: 1
+ *         required: false
+ *         description: The page number to retrieve. Defaults to 1.
+ *       - in: query
+ *         name: size
+ *         schema:
+ *           type: integer
+ *           default: 10
+ *         required: false
+ *         description: Number of blogs per page. Defaults to 10.
  *     responses:
  *       200:
- *         description: Blogs matching the search query
+ *         description: Blogs matching the search query with pagination.
  *         content:
  *           application/json:
  *             schema:
- *               type: array
- *               items:
- *                 type: object
- *                 properties:
- *                   title:
- *                     type: string
- *                   content:
- *                     type: string
- *                   imageUrl:
- *                     type: string
- *                   tags:
- *                     type: array
- *                     items:
- *                       type: string
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   description: Indicates successful response.
+ *                   example: true
+ *                 blogs:
+ *                   type: array
+ *                   items:
+ *                     type: object
+ *                     properties:
+ *                       _id:
+ *                         type: string
+ *                         description: Unique identifier for the blog.
+ *                         example: "60d21b4667d0d8992e610c85"
+ *                       title:
+ *                         type: string
+ *                         description: Title of the blog.
+ *                         example: "Understanding Node.js Pagination"
+ *                       content:
+ *                         type: string
+ *                         description: Content of the blog.
+ *                         example: "This blog post covers pagination in Node.js..."
+ *                       imageUrl:
+ *                         type: string
+ *                         nullable: true
+ *                         description: URL to the blog image.
+ *                         example: "http://example.com/image.jpg"
+ *                       tags:
+ *                         type: array
+ *                         items:
+ *                           type: string
+ *                         description: Tags associated with the blog.
+ *                         example: ["Node.js", "Pagination"]
+ *                 currentPage:
+ *                   type: integer
+ *                   description: The current page number.
+ *                   example: 1
+ *                 totalPages:
+ *                   type: integer
+ *                   description: The total number of pages available.
+ *                   example: 5
+ *                 totalBlogs:
+ *                   type: integer
+ *                   description: The total number of blogs matching the search query.
+ *                   example: 50
  *       400:
- *         description: No search query provided
+ *         description: Bad request, usually when the search query is not provided.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   example: false
+ *                 message:
+ *                   type: string
+ *                   example: "No search query provided"
  *       500:
- *         description: Internal server error
+ *         description: Internal server error, such as when an error occurs during search.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   example: false
+ *                 message:
+ *                   type: string
+ *                   example: "Error searching blogs: <error message>"
  */
 router.get('/search', searchBlogs);
 

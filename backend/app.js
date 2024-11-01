@@ -20,11 +20,11 @@ app.use(cookieParser());
 swaggerDocs(app);
 
 // Import route
-import studentRoutes from './routes/studentRoutes.js';
+import studentRoutes from './routes/student.routes.js';
 import adminRoutes from './routes/admin.route.js';
 import blogRoutes from './routes/blog.routes.js';
 import testimonyRoutes from './routes/testimony.route.js';
-import adminRegistration from './routes/adminRegisteration.routes.js';
+import adminRegistration from './routes/volunteer.routes.js';
 
 
 // use routes
