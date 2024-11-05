@@ -66,7 +66,7 @@ export default function ContactPage() {
     <div className="flex flex-col min-h-screen">
       <main className="flex-grow">
         {/* Contact Header */}
-        <section className="bg-primary text-primary-foreground pt-24 pb-8">
+        <section className="bg-primary text-primary-foreground pt-28 pb-16 h-80">
           <div className="container mx-auto text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-4">{t('contact.title')}</h1>
             <p className="text-xl mb-8">{t('contact.subtitle')}</p>

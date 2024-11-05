@@ -21,6 +21,7 @@ export default function Navbar() {
 
   const navItems = [
     { href: '/blog', label: t('nav.blog') },
+    { href:'/gallery', label: t('nav.gallery')},
     { href: '/about', label: t('nav.about') },
     { href: '/contact', label: t('nav.contact') },
     { href: '/give', label: t('nav.give') },

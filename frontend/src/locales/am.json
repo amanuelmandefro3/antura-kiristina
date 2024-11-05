@@ -3,7 +3,8 @@
       "blog": "ብሎግ",
       "about": "ስለ እኛ",
       "contact": "አግኙን",
-      "give": "ስጦታ"
+      "gallery":"ጋለሪ",
+      "give": "መስጠት"
     },
     "hero": {
     "title": "የእግዚአብሔርን ቃል አብረን እንማር",
@@ -207,34 +208,49 @@
       "description": "እባክዎን እንደ በጎ ፈቃደኛ ለመመዝገብ ከታች ያለውን ቅጽ ይሙሉ። በኮከብ (*) የተ ጠቀሱት መስኮች አስፈላጊ ናቸው።"
     },
     "volunteerForm": {
-      "fullName": "ሙሉ ስም",
-      "age": "ዕድሜ",
-      "ageError": "እድሜው በ20 እና 30 መካከል መሆን አለበት",
-      "address": "አድራሻ",
-      "phoneNumber": "የስልክ ቁጥር",
-      "email": "የኢሜይል አድራሻ",
-      "residentialAddress": "የመኖሪያ አድራሻ",
-      "educationLevel": "የትምህርት ደረጃ",
-      "employmentStatus": "የሥራ ሁኔታ",
-      "church": "ቤተ ክርስቲያን",
-      "socialMedia": "ማኅበራዊ ሚዲያ",
-      "serviceAreasQuestion": "በምን ዘርፍ ማገልገል ይፈልጋሉ",
-      "serviceAreas": {
-        "teaching": "በማስተማር",
-        "counseling": "በማማከር",
-        "coordinating": "በአስተባባሪነት",
-        "assignedPlace": "በተመደብኩበት ቦታ",
-        "other": "ሌላ"
-      },
-      "availabilityFrequencyQuestion": "ምን ያህል ማገልገል ይፈልጋሉ",
-      "availabilityFrequency": {
-        "onceAWeek": "በሳምንት አንድ ቀን",
-        "twiceAWeek": "በሳምንት ሁለት ቀን",
-        "asNeeded": "በተፈለኩ ጊዜ ሁሉ"
-      },
-      "submit": "አስገባ",
-      "required": "ይህ መስክ አስፈላጊ ነው"
+    "fullName": "ሙሉ ስም",
+    "age": "ዕድሜ",
+    "ageError": "እድሜው በ20 እና 30 መካከል መሆን አለበት",
+    "address": "አድራሻ",
+    "phoneNumber": "የስልክ ቁጥር",
+    "email": "የኢሜይል አድራሻ",
+    "residentialAddress": "የመኖሪያ አድራሻ",
+    "educationLevel": "የትምህርት ደረጃ",
+    "employmentStatus": "የሥራ ሁኔታ",
+    "church": "ቤተ ክርስቲያን",
+    "socialMedia": "ቴሌግራም ዩዘርኔም",
+    "serviceAreasQuestion": "በምን ዘርፍ ማገልገል ይፈልጋሉ",
+    "serviceAreas": {
+      "Teaching": "በማስተማር",
+      "Counseling": "በማማከር",
+      "Coordinating": "በአስተባባሪነት",
+      "AssignedPlace": "በተመደብኩበት ቦታ",
+      "Other": "ሌላ",
+      "otherDetail":"ማድረግ የሚፈልጉትን አገልግሎት ያስገቡ"
     },
+    "availabilityFrequencyQuestion": "ምን ያህል ማገልገል ይፈልጋሉ",
+    "availabilityFrequency": {
+      "onceAWeek": "በሳምንት አንድ ቀን",
+      "twiceAWeek": "በሳምንት ሁለት ቀን",
+      "asNeeded": "በተፈለኩ ጊዜ ሁሉ"
+    },
+    "submit": "አስገባ",
+    "required": "ይህ መስክ አስፈላጊ ነው",
+    "educationLevels": {
+      "highSchool": "ሁለተኛ ደረጃ ትምህርት",
+      "bachelors": "የመጀመሪያ ዲግሪ",
+      "masters": "ማስተርስ ዲግሪ",
+      "phd": "ዶክትሬት"
+    },
+    "employmentStatuses": {
+      "employed": "ተቀጣሪ",
+      "unemployed": "ስራ አጥ",
+      "student": "ተማሪ",
+      "retired": "ጡረተኛ"
+    },
+    "selectEducationLevel": "የትምህርት ደረጃዎን ይምረጡ",
+    "selectEmploymentStatus": "የሥራ ሁኔታዎን ይምረጡ"
+  },
     
     "testimonials": {
       "title": "ሰዎች ምን የሚሉት",
@@ -267,5 +283,15 @@
         "name": "ማርታ ገብሬ",
         "content": "እንደ በጎ ፈቃደኛ፣ እነዚህን አስደናቂ ወጣቶች እየመራሁ በራሴ እምነት አድጌአለሁ። የተማሪዎቹ ሃይልና 열정ተላላፊና አነሳሽ ነው።"
       }
+    },
+    "registrationSuccess": {
+      "title": "ምዝገባው በተሳካ ሁኔታ ተጠናቅቋል!",
+      "message": "ስለተመዘገቡ እናመሰግናለን። ቀጣይ እርምጃዎችን ለመወያየት ቡድናችን በቅርቡ ከእርስዎ ጋር ይገናኛል።",
+      "goHome": "ወደ ዋና ገጽ ሂድ"
+    },
+    "gallery": {
+      "pageTitle": "በዓመታት የእኛ ጋለሪ",
+      "pageSubtitle": "የእኛን ጉዞና ውጤቶች ያስሱ",
+      "batchHighlights": "የ{year} ዋና ዋና ክስተቶች"
     }
   }

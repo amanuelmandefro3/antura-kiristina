@@ -3,7 +3,8 @@
       "blog": "Blog",
       "about": "About",
       "contact": "Contact",
-      "give": "Give"
+      "gallery": "Gallery",
+      "give": "Donate"
     },
     "hero": {
     "title": "Discover God's Word Together",
@@ -205,35 +206,50 @@
       "title": "Volunteer Registration",
       "description": "Please fill out the form below to register as a volunteer. Fields marked with an asterisk (*) are required."
     },
-    "volunteerForm": {
-      "fullName": "Full Name",
-      "age": "Age",
-      "ageError": "Age must be between 20 and 30",
-      "address": "Address",
-      "phoneNumber": "Phone Number",
-      "email": "Email",
-      "residentialAddress": "Residential Address",
-      "educationLevel": "Education Level",
-      "employmentStatus": "Employment Status",
-      "church": "Church",
-      "socialMedia": "Social Media",
-      "serviceAreasQuestion": "Service Areas",
-      "serviceAreas": {
-        "teaching": "Teaching",
-        "counseling": "Counseling",
-        "coordinating": "Coordinating",
-        "assignedPlace": "Assigned Place",
-        "other": "Other"
-      },
-      "availabilityFrequencyQuestion": "How often would you like to volunteer?",
-      "availabilityFrequency": {
-        "onceAWeek": "Once a week",
-        "twiceAWeek": "Twice a week",
-        "asNeeded": "As needed"
-      },
-      "submit": "Submit",
-      "required": "This field is required"
+   "volunteerForm": {
+    "fullName": "Full Name",
+    "age": "Age",
+    "ageError": "Age must be between 20 and 30",
+    "address": "Address",
+    "phoneNumber": "Phone Number",
+    "email": "Email Address",
+    "residentialAddress": "Residential Address",
+    "educationLevel": "Education Level",
+    "employmentStatus": "Employment Status",
+    "church": "Church",
+    "socialMedia": "Telegram Username",
+    "serviceAreasQuestion": "In which area would you like to serve",
+    "serviceAreas": {
+      "Teaching": "Teaching",
+      "Counseling": "Counseling",
+      "Coordinating": "Coordinating",
+      "AssignedPlace": "Assigned Place",
+      "Other": "Other",
+      "otherDetail":"Enter Service you want provide."
     },
+    "availabilityFrequencyQuestion": "How often would you like to serve",
+    "availabilityFrequency": {
+      "onceAWeek": "Once a week",
+      "twiceAWeek": "Twice a week",
+      "asNeeded": "As needed"
+    },
+    "submit": "Submit",
+    "required": "This field is required",
+    "educationLevels": {
+      "highSchool": "High School",
+      "bachelors": "Bachelor's Degree",
+      "masters": "Master's Degree",
+      "phd": "PhD"
+    },
+    "employmentStatuses": {
+      "employed": "Employed",
+      "unemployed": "Unemployed",
+      "student": "Student",
+      "retired": "Retired"
+    },
+    "selectEducationLevel": "Select your education level",
+    "selectEmploymentStatus": "Select your employment status"
+  },
     "testimonials": {
       "title": "What People Are Saying",
       "type": {
@@ -265,6 +281,17 @@
         "name": "Martha Gebre",
         "content": "As a volunteer, I've grown in my own faith while helping guide these amazing young people. The energy and passion of the students is contagious and inspiring."
       }
+    },
+  
+      "registrationSuccess": {
+        "title": "Registration Successful!",
+        "message": "Thank you for registering. Our team will be in touch with you soon to discuss the next steps.",
+        "goHome": "Go to Home Page"
+      },
+      "gallery": {
+      "pageTitle": "Our Gallery Through the Years",
+      "pageSubtitle": "Explore our journey and achievements",
+      "batchHighlights": "{year} Highlights"
     }
   }
 

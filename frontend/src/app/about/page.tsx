@@ -21,7 +21,7 @@ export default function AboutPage() {
     <div className="flex flex-col min-h-screen">
       <main className="flex-grow">
         {/* About Header */}
-        <section className="bg-primary text-primary-foreground pt-28 py-16">
+        <section className="bg-primary text-primary-foreground pt-28 py-16 h-80">
           <div className="container mx-auto text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-4">{t('about.title')}</h1>
             <p className="text-xl mb-8">{t('about.subtitle')}</p>

@@ -108,29 +108,6 @@ export default function Home() {
         <section className="py-16 bg-muted">
             <h2 className="text-3xl font-bold mb-8 text-center">{t('blog.title')}</h2>
             <Blog />
-          {/* <div className=" mx-auto px-4"> */}
-            {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"> */}
-              {/* {blogPosts.map((post: { title: string; description: string }, index: number) => (
-                <Card key={index} className="overflow-hidden flex flex-col">
-                  <div className="relative w-full pt-[56.25%]">
-                    <Image
-                      src="https://res.cloudinary.com/dxjomgo1o/image/upload/v1728974728/pexels-pixabay-372326_yvhrfe.jpg"
-                      alt={post.title}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <div className="p-6 flex flex-col flex-grow">
-                    <h3 className="text-xl font-semibold mb-2">{post.title}</h3>
-                    <p className="text-muted-foreground mb-4 flex-grow">{post.description}</p>
-                    <Button variant="outline" asChild className="mt-auto">
-                      <Link href={`/blog/${post.title.toLowerCase().replace(/ /g, '-')}`}>{t('getInvolved.learnMore')}</Link>
-                    </Button>
-                  </div>
-                </Card>
-              ))} */}
-            {/* </div> */}
-          {/* </div> */}
         </section>
 
         {/* Quick Links */}
