@@ -50,6 +50,6 @@ const VolunteerRegistrationSchema = new mongoose.Schema({
         enum: ['onceAWeek', 'twiceAWeek', 'asNeeded'],
         required: true
     }
-});
+}, { timestamps: true });
 
 export const VolunteerRegistration = mongoose.model('VolunteerRegistration', VolunteerRegistrationSchema);

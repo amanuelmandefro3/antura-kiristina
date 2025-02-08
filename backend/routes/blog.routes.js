@@ -28,6 +28,7 @@ const router = express.Router();
  *             required:
  *               - title
  *               - content
+ *               - author
  *             properties:
  *               title:
  *                 type: string
@@ -45,6 +46,9 @@ const router = express.Router();
  *                   type: string
  *                 collectionFormat: multi
  *                 description: "Tags for the blog (optional)"
+ *               author:
+ *                 type: string
+ *                 description: "Author of the blog"
  *     responses:
  *       200:
  *         description: Blog created successfully
@@ -101,6 +105,8 @@ router.post('/create', upload.single('imageUrl'), createBlog);
  *                         type: array
  *                         items:
  *                           type: string
+ *                       author:
+ *                         type: string
  *                 currentPage:
  *                   type: integer
  *                   description: The current page number.
@@ -185,6 +191,10 @@ router.get('/', getAllBlogs);
  *                           type: string
  *                         description: Tags associated with the blog.
  *                         example: ["Node.js", "Pagination"]
+ *                       author:
+ *                         type: string
+ *                         description: Author of the blog.
+ *                         example: "John Doe"
  *                 currentPage:
  *                   type: integer
  *                   description: The current page number.
@@ -257,6 +267,8 @@ router.get('/search', searchBlogs);
  *                   type: array
  *                   items:
  *                     type: string
+ *                 author:
+ *                   type: string
  *                 createdAt:
  *                   type: string
  *                   format: date-time
@@ -307,6 +319,9 @@ router.get('/:id', getBlogById);
  *                 items:
  *                   type: string
  *                 description: Tags for the blog
+ *               author:
+ *                 type: string
+ *                 description: Author of the blog
  *     responses:
  *       200:
  *         description: Blog updated successfully
