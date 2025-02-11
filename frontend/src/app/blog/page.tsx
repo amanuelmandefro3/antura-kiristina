@@ -10,13 +10,15 @@ import { useEffect, useState } from "react"
 import { getBlogs } from "@/lib/service/blogs"
 import { Skeleton } from "@/components/ui/skeleton"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
-import { AlertCircle, ChevronLeft, ChevronRight } from "lucide-react"
+import { AlertCircle, ChevronLeft, ChevronRight, User } from "lucide-react"
 
 interface Blog {
   title: string
   content: string
-  imageUrl: string
+  imageUrl: string | null
   _id: string
+  author: string
+  tags?: string[]
 }
 
 interface BlogResponse {
@@ -43,6 +45,7 @@ export default function BlogPage() {
         const response: BlogResponse = await getBlogs(currentPage, postsPerPage)
         setBlogPosts(response.data)
         setTotalPages(response.totalPages)
+        console.log(response.data)
       } catch (error) {
         if (error instanceof Error) {
           setError(error.message)
@@ -57,8 +60,15 @@ export default function BlogPage() {
   }, [currentPage])
 
   const truncateContent = (content: string, maxLength = 100) => {
-    if (content.length <= maxLength) return content
-    return content.slice(0, maxLength) + '...'
+    // Find first paragraph content
+    const match = content.match(/<p>(.*?)<\/p>/)
+    if (!match) return content.slice(0, maxLength) + '...'
+    
+    // Extract text from first paragraph without HTML tags
+    const firstParagraph = match[1].replace(/<[^>]*>/g, '')
+    
+    if (firstParagraph.length <= maxLength) return firstParagraph
+    return firstParagraph.slice(0, maxLength) + '...'
   }
 
   const handlePageChange = (newPage: number) => {
@@ -104,6 +114,7 @@ export default function BlogPage() {
                       <Skeleton className="w-full h-56" />
                       <CardContent className="p-6 flex flex-col flex-grow">
                         <Skeleton className="h-6 w-3/4 mb-2" />
+                        <Skeleton className="h-4 w-1/3 mb-2" />
                         <Skeleton className="h-4 w-full mb-2" />
                         <Skeleton className="h-4 w-full mb-2" />
                         <Skeleton className="h-4 w-2/3" />
@@ -113,16 +124,14 @@ export default function BlogPage() {
                       </CardFooter>
                     </Card>
                   ))
-                : blogPosts
-                    .filter((post: Blog) => post.imageUrl)
-                    .map((post) => (
+                : blogPosts.map((post) => (
                       <Card
                         key={post._id}
                         className="overflow-hidden flex flex-col"
                       >
                         <div className="relative w-full pt-[56.25%]">
                           <Image
-                            src={post.imageUrl}
+                            src={post.imageUrl || 'https://res.cloudinary.com/dxjomgo1o/image/upload/v1728974728/pexels-pixabay-372326_yvhrfe.jpg'} 
                             alt={post.title}
                             fill
                             className="object-cover"
@@ -132,6 +141,14 @@ export default function BlogPage() {
                           <h2 className="text-xl font-semibold mb-2">
                             {post.title}
                           </h2>
+                          <div className="flex items-center gap-2 mb-3">
+                            <div className="bg-primary/10 p-2 rounded-full">
+                              <User className="h-4 w-4 text-primary" />
+                            </div>
+                            <span className="text-sm font-medium text-muted-foreground">
+                              {post.author}
+                            </span>
+                          </div>
                           <p className="text-muted-foreground mb-4 flex-grow">
                             {truncateContent(post.content)}
                           </p>
@@ -207,11 +224,7 @@ export default function BlogPage() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-muted py-8">
-        <div className="container mx-auto text-center">
-          <p>{t("footer.copyright")}</p>
-        </div>
-      </footer>
+     
     </div>
   )
 }

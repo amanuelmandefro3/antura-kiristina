@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { MapPin, Phone, Mail, Clock, Plus, Minus } from "lucide-react"
 import { useLanguage } from '@/components/LanguageContext'
+import { FaFacebookSquare, FaInstagramSquare, FaYoutubeSquare } from "react-icons/fa";
 
 export default function ContactPage() {
   const { t } = useLanguage()
@@ -91,7 +92,7 @@ export default function ContactPage() {
                   </div>
                   <div className="flex items-center">
                     <Mail className="mr-2 h-5 w-5 text-anturaGreen" />
-                    <p>{t('contact.email')}</p>
+                    <p>akscenter57@gmail.com</p>
                   </div>
                   <div className="flex items-center">
                     <Clock className="mr-2 h-5 w-5 text-anturaGreen" />
@@ -101,14 +102,17 @@ export default function ContactPage() {
                 <div className="mt-6">
                   <h3 className="text-xl font-semibold mb-2">{t('contact.followUs')}</h3>
                   <div className="flex space-x-4">
-                    <Link href="#" className="text-anturaGreen hover:text-primary">
-                      Facebook
+                    <Link href="https://facebook.com/aksc57" className="text-anturaGreen hover:text-primary" target="_blank">
+                      <FaFacebookSquare className="h-6 w-6" />
+                      <span className="sr-only">Follow us on Facebook</span>
                     </Link>
-                    <Link href="#" className="text-anturaGreen hover:text-primary">
-                      Instagram
+                    <Link href="https://instagram.com/aksc_57" className="text-anturaGreen hover:text-primary" target="_blank">
+                      <FaInstagramSquare className="h-6 w-6" />
+                      <span className="sr-only">Follow us on Instagram</span>
                     </Link>
-                    <Link href="#" className="text-anturaGreen hover:text-primary">
-                      Twitter
+                    <Link href="https://www.youtube.com/@anturakiristina2848" className="text-anturaGreen hover:text-primary" target="_blank">
+                      <FaYoutubeSquare className="h-6 w-6" />
+                      <span className="sr-only">Subscribe to our YouTube channel</span>
                     </Link>
                   </div>
                 </div>
@@ -214,12 +218,6 @@ export default function ContactPage() {
         </section>
       </main>
 
-      {/* Footer */}
-      <footer className="bg-muted py-8">
-        <div className="container mx-auto text-center">
-          <p>{t('footer.copyright')}</p>
-        </div>
-      </footer>
     </div>
   )
 }

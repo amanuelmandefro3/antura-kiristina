@@ -174,12 +174,6 @@ export default function GalleryPage() {
           </div>
         </section>
       </main>
-
-      <footer className="bg-muted py-6">
-        <div className="container mx-auto text-center">
-          <p> <p>{t("footer.copyright")}</p></p>
-        </div>
-      </footer>
     </div>
   )
 }

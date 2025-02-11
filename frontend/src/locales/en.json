@@ -219,6 +219,8 @@
     "church": "Church",
     "socialMedia": "Telegram Username",
     "serviceAreasQuestion": "In which area would you like to serve",
+    "previous": "Previous",
+    "next": "Next",
     "serviceAreas": {
       "Teaching": "Teaching",
       "Counseling": "Counseling",

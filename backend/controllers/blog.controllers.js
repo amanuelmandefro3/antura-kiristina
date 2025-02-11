@@ -50,7 +50,7 @@ export const createBlog = async (req, res) => {
 
 export const editBlog = async (req, res) => {
   const { id } = req.params
-  const { title, content, tags } = req.body
+  const { title, content, tags, author} = req.body
   const imageUrl = req.file ? req.file.path : req.body.imageUrl || null
 
   let tags_array = []

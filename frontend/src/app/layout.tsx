@@ -4,7 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { LanguageProvider } from "@/components/LanguageContext";
 import { LanguageInitializer } from "@/components/LanguageInitializer";
-
+import Footer from "@/components/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -25,6 +25,7 @@ export default function RootLayout({
           <div className="flex flex-col">
             <Navbar />
             {children}
+            <Footer />
           </div>
         </LanguageProvider>
       </body>

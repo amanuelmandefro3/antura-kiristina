@@ -110,13 +110,6 @@ export default function AboutPage() {
           </div>
         </section>
       </main>
-
-      {/* Footer */}
-      <footer className="bg-muted py-8">
-        <div className="container mx-auto text-center">
-          <p>{t('footer.copyright')}</p>
-        </div>
-      </footer>
     </div>
   )
 }

@@ -11,7 +11,7 @@ const swaggerOptions = {
     },
     servers: [
       {
-        url: "https://aksc-ministry.onrender.com/api",
+        url: "http://localhost:5000/api",
       },
     ],
   },

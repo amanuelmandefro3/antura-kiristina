@@ -9,7 +9,7 @@ export default function RegistrationSuccess() {
   const { t } = useLanguage()
 
   return (
-    <div className="flex flex-col min-h-screen bg-gray-100">
+    <div className="flex flex-col min-h-[90vh] bg-gray-100">
       <main className="flex-grow flex items-center justify-center p-4">
         <Card className="w-full max-w-md bg-gray-100 border-0">
           <CardHeader className="text-center">
@@ -30,11 +30,6 @@ export default function RegistrationSuccess() {
           </CardContent>
         </Card>
       </main>
-      <footer className="bg-muted py-4">
-        <div className="container mx-auto text-center text-sm text-gray-600">
-          <p>{t("footer.copyright")}</p>
-        </div>
-      </footer>
     </div>
   )
 }

@@ -224,11 +224,7 @@ export default function StudentRegistrationForm() {
           </CardContent>
         </Card>
       </main>
-      <footer className="bg-muted py-8">
-        <div className="container mx-auto text-center">
-          <p>{t('footer.copyright')}</p>
-        </div>
-      </footer>
+      
     </div>
   )
 }
