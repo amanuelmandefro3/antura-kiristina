@@ -25,7 +25,7 @@ export const InfiniteMovingCards: React.FC<InfiniteMovingCardsProps> = ({
 
   useEffect(() => {
     addAnimation();
-  }, []);
+  });
 
   function addAnimation() {
     if (scrollerRef.current) {
