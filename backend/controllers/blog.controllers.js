@@ -96,7 +96,7 @@ export const getAllBlogs = async (req, res) => {
     const totalPages = Math.ceil(totalBlogs / size);
 
     // Fetch paginated blogs
-    const blogs = await Blog.find()
+    const blogs = await Blog.find().sort({ createdAt: -1 })
       .skip((page - 1) * size) // Skip the appropriate number of documents
       .limit(size); // Limit the result to the specified page size
 

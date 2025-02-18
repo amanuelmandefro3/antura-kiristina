@@ -6,6 +6,7 @@ import cors from 'cors';
 import {connectDB} from './config/db.js';
 import cookieParser from 'cookie-parser';
 import swaggerDocs from './swagger.js';
+import teamRoutes from './routes/team.routes.js';
 
 
  
@@ -33,6 +34,7 @@ app.use('/api/volunteer', adminRegistration);
 app.use('/api/admin', adminRoutes);
 app.use('/api/blogs', blogRoutes)
 app.use('/api/testimonies', testimonyRoutes);
+app.use('/api/team', teamRoutes);
 
 
 

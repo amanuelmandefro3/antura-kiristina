@@ -15,7 +15,7 @@ import {
   sendPasswordResetSuccessEmail,
 } from "../Email/email.js";
 
-import { generateTokenAndSetCookie } from "../utils/generateTokenAndSetCookie.js";
+import { generateToken } from "../utils/generateTokenAndSetCookie.js";
 
 // create zod vaalidation schema for the following admin fields: name, email, password
 
@@ -58,14 +58,23 @@ export const registerAdmin = async (req, res) => {
     const salt = await bcrypt.genSalt(10);
     admin.password = await bcrypt.hash(password, salt);
     
-    generateTokenAndSetCookie(res, { id: admin.id });
+    // Generate token
+    const accessToken = generateToken({ id: admin.id });
+    
     // send verification email
     await sendVerificationEmail(email, verificationToken);
     await admin.save();
 
-    res
-      .status(200)
-      .json({ success: true, msg: "Admin registered successfully" });
+    res.status(200).json({ 
+      success: true, 
+      msg: "Admin registered successfully",
+      accessToken,
+      admin: {
+        id: admin._id,
+        name: admin.name,
+        email: admin.email,
+      }
+    });
   } catch (errors) {
     // handle zod validation errors
     if (errors instanceof z.ZodError) {
@@ -129,21 +138,30 @@ export const loginAdmin = async (req, res) => {
         .status(400)
         .json({ success: false, msg: "Invalid credentials" });
     }
-    generateTokenAndSetCookie(res, { id: admin.id });
-    res
-      .status(200)
-      .json({ success: true, msg: "Admin logged in successfully" });
+    
+    // Generate token and return it in response
+    const accessToken = generateToken({ id: admin.id });
+    
+    res.status(200).json({ 
+      success: true, 
+      msg: "Admin logged in successfully",
+      accessToken,
+      admin: {
+        id: admin._id,
+        name: admin.name,
+        email: admin.email,
+      }
+    });
   } catch (err) {
     console.error(err);
-    res.status(500).json({ success: false, msg: error.message });
+    res.status(500).json({ success: false, msg: err.message });
   }
 };
 
-export const logoutAdmin = async (req, res) => {
-  res.clearCookie("accessToken");
-  res.clearCookie("refreshToken");
-  res.status(200).json({ success: true, msg: "Admin logged out successfully" });
-};
+// export const logoutAdmin = async (req, res) => {
+//   // Since we're not using cookies anymore, this endpoint just sends success response
+//   res.status(200).json({ success: true, msg: "Admin logged out successfully" });
+// };
 
 export const forgotAdminPassword = async (req, res) => {
   const { email } = req.body;
@@ -192,33 +210,4 @@ export const resetAdminPassword = async (req, res) => {
     admin.save();
     res.status(200).json({ success: true, msg: "Password reset successful" });
   } catch (error) {}
-};
-
-export const refreshToken = async (req, res) => {
-  const { refreshToken } = req.body;
-  if (!refreshToken) {
-    return res
-      .status(401)
-      .json({ success: false, msg: "Access denied, token missing" });
-  }
-  try {
-    const refreshTokenSecret = process.env.REFRESH_TOKEN_SECRET;
-    jwt.verify(refreshToken, refreshTokenSecret, (err, user) => {
-      if (err) {
-        return res.status(403).json({ success: false, msg: "Invalid token" });
-      }
-      const payload = {
-        admin: {
-          id: user.admin.id,
-        },
-      };
-      const accessToken = jwt.sign(payload, process.env.ACCESS_TOKEN_SECRET, {
-        expiresIn: "1h",
-      });
-      res.status(200).json({ success: true, accessToken });
-    });
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ success: false, msg: "Internal server error" });
-  }
 };

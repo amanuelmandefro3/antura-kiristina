@@ -3,16 +3,14 @@ import {
   registerAdmin,
   verifyEmail,
   loginAdmin,
-  logoutAdmin,
   forgotAdminPassword,
   resetAdminPassword,
-  refreshToken,
 } from '../controllers/admin.controller.js';
 
 const router = express.Router();
 
 // Swagger Documentation (Ensure to add this on top)
- /**
+/**
  * @swagger
  * tags:
  *   name: Admin
@@ -109,27 +107,34 @@ router.post('/verify-email', verifyEmail);
  *                 description: "Admin's password"
  *     responses:
  *       200:
- *         description: Admin logged in successfully
+ *         description: Admin logged in successfully and returns access token
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                 msg:
+ *                   type: string
+ *                 accessToken:
+ *                   type: string
+ *                   description: JWT token valid for 24 hours
+ *                 admin:
+ *                   type: object
+ *                   properties:
+ *                     id:
+ *                       type: string
+ *                     name:
+ *                       type: string
+ *                     email:
+ *                       type: string
  *       400:
  *         description: Invalid credentials
  *       500:
  *         description: Internal server error
  */
 router.post('/login', loginAdmin);
-
-/**
- * @swagger
- * /admin/logout:
- *   post:
- *     summary: Admin logout
- *     tags: [Admin]
- *     responses:
- *       200:
- *         description: Admin logged out successfully
- *       500:
- *         description: Internal server error
- */
-router.post('/logout', logoutAdmin);
 
 /**
  * @swagger
@@ -193,33 +198,5 @@ router.post('/forgot-password', forgotAdminPassword);
  *         description: Internal server error
  */
 router.post('/reset-password/:token', resetAdminPassword);
-
-/**
- * @swagger
- * /admin/refresh-token:
- *   post:
- *     summary: Refresh access token using a refresh token
- *     tags: [Admin]
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             type: object
- *             required:
- *               - refreshToken
- *             properties:
- *               refreshToken:
- *                 type: string
- *                 description: "Refresh token to generate a new access token"
- *     responses:
- *       200:
- *         description: New access token generated successfully
- *       401:
- *         description: Access denied, token missing
- *       500:
- *         description: Internal server error
- */
-router.post('/refresh-token', refreshToken);
 
 export default router;
