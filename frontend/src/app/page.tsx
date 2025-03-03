@@ -10,6 +10,7 @@ import { useEffect, useState } from 'react'
 import { getBlogs } from '@/lib/service/blogs'
 import { useLanguage } from '@/components/LanguageContext'
 import { Skeleton } from "@/components/ui/skeleton"
+import { extractFirstParagraph } from '@/lib/textUtils'
 
 interface Blog {
   title: string
@@ -47,13 +48,13 @@ export default function Home() {
     fetchRecentBlogs()
   }, [])
 
-  const truncateContent = (content: string, maxLength = 100) => {
-    const match = content.match(/<p>(.*?)<\/p>/)
-    if (!match) return content.slice(0, maxLength) + '...'
-    const firstParagraph = match[1].replace(/<[^>]*>/g, '')
-    if (firstParagraph.length <= maxLength) return firstParagraph
-    return firstParagraph.slice(0, maxLength) + '...'
-  }
+  // const truncateContent = (content: string, maxLength = 100) => {
+  //   const match = content.match(/<p>(.*?)<\/p>/)
+  //   if (!match) return content.slice(0, maxLength) + '...'
+  //   const firstParagraph = match[1].replace(/<[^>]*>/g, '')
+  //   if (firstParagraph.length <= maxLength) return firstParagraph
+  //   return firstParagraph.slice(0, maxLength) + '...'
+  // }
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -171,7 +172,8 @@ export default function Home() {
                         </span>
                       </div>
                       <p className="text-muted-foreground mb-4 flex-grow">
-                        {truncateContent(post.content)}
+                        {/* {truncateContent(post.content)} */}
+                        {extractFirstParagraph(post.content, 100)}
                       </p>
                     </CardContent>
                     <CardFooter>
@@ -200,13 +202,6 @@ export default function Home() {
           </div>
         </section>
       </main>
-
-      {/* Footer */}
-      <footer className="bg-muted py-8">
-        <div className="container mx-auto text-center">
-          <p>{t('footer.copyright')}</p>
-        </div>
-      </footer>
     </div>
   )
 }

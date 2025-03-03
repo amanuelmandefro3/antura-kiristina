@@ -57,9 +57,8 @@ export const InfiniteMovingCards: React.FC<InfiniteMovingCardsProps> = ({
   return (
     <div
       ref={containerRef}
-      className="scroller relative z-20 mx-4 md:mx-20 overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_10%,white_10%,transparent)]"
+      className="scroller relative z-20 mx-4 md:mx-20 overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]"
     >
-      {/* [mask-image:linear-gradient(to_right,transparent,white_50%,white_80%,transparent)] */}
       <ul
         ref={scrollerRef}
         className={`flex min-w-full shrink-0 gap-8 py-4 w-max flex-nowrap ${start ? "animate-scroll" : ""}`}
@@ -71,14 +70,14 @@ export const InfiniteMovingCards: React.FC<InfiniteMovingCardsProps> = ({
         {[...items, ...items].map((item, idx) => (
           <li
             key={idx}
-            className="w-[400px] max-w-full relative rounded-2xl border border-b-0 flex-shrink-0 border-gray-400 px-8 py-6 bg-[#F1F5F9] flex flex-col items-center gap-2"
+            className="w-[400px] max-w-full relative rounded-2xl border border-b-0 flex-shrink-0 border-gray-400 px-8 py-6 bg-[#F1F5F9] flex flex-col items-center gap-2 shadow-sm transition-shadow duration-300"
           >
             <blockquote>
               <div
                 aria-hidden="true"
                 className="user-select-none -z-1 pointer-events-none absolute -left-0.5 -top-0.5 h-[calc(100%+_4px)] w-[calc(100%+_4px)]"
               ></div>
-              <span className="relative z-20 text-lg leading-[1.6] font-medium">
+              <span className="relative z-20 text-nomral leading-[1.6]">
                 {item.quote}
               </span>
             </blockquote>
@@ -102,6 +101,31 @@ export const InfiniteMovingCards: React.FC<InfiniteMovingCardsProps> = ({
           100% {
             transform: translateX(calc(-100% / 2)); /* Move by half, since we duplicated */
           }
+        }
+        
+        /* Add subtle shadow effect for cards entering and exiting */
+        .scroller {
+          position: relative;
+        }
+        
+        .scroller::before, .scroller::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          height: 100%;
+          width: 100px;
+          z-index: 10;
+          pointer-events: none;
+        }
+        
+        .scroller::before {
+          left: 0;
+          background: linear-gradient(to right, rgba(241, 245, 249, 0.8), rgba(241, 245, 249, 0));
+        }
+        
+        .scroller::after {
+          right: 0;
+          background: linear-gradient(to left, rgba(241, 245, 249, 0.8), rgba(241, 245, 249, 0));
         }
       `}</style>
     </div>

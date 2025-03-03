@@ -11,6 +11,7 @@ import { getBlogs } from "@/lib/service/blogs"
 import { Skeleton } from "@/components/ui/skeleton"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { AlertCircle, ChevronLeft, ChevronRight, User } from "lucide-react"
+import { extractFirstParagraph } from "@/lib/textUtils"
 
 interface Blog {
   title: string
@@ -59,17 +60,17 @@ export default function BlogPage() {
     fetchBlogs()
   }, [currentPage])
 
-  const truncateContent = (content: string, maxLength = 100) => {
-    // Find first paragraph content
-    const match = content.match(/<p>(.*?)<\/p>/)
-    if (!match) return content.slice(0, maxLength) + '...'
+  // const truncateContent = (content: string, maxLength = 100) => {
+  //   // Find first paragraph content
+  //   const match = content.match(/<p>(.*?)<\/p>/)
+  //   if (!match) return content.slice(0, maxLength) + '...'
     
-    // Extract text from first paragraph without HTML tags
-    const firstParagraph = match[1].replace(/<[^>]*>/g, '')
+  //   // Extract text from first paragraph without HTML tags
+  //   const firstParagraph = match[1].replace(/<[^>]*>/g, '')
     
-    if (firstParagraph.length <= maxLength) return firstParagraph
-    return firstParagraph.slice(0, maxLength) + '...'
-  }
+  //   if (firstParagraph.length <= maxLength) return firstParagraph
+  //   return firstParagraph.slice(0, maxLength) + '...'
+  // }
 
   const handlePageChange = (newPage: number) => {
     if (newPage >= 1 && newPage <= totalPages) {
@@ -150,7 +151,8 @@ export default function BlogPage() {
                             </span>
                           </div>
                           <p className="text-muted-foreground mb-4 flex-grow">
-                            {truncateContent(post.content)}
+                            {/* {truncateContent(post.content)} */}
+                            {extractFirstParagraph(post.content, 100)}
                           </p>
                         </CardContent>
                         <CardFooter>
